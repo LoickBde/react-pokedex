@@ -7,6 +7,7 @@ Creation of a Pokedex using the famous [PokéAPI](https://pokeapi.co/).
 - Vite
 - Typescript
 - React
-- Tailwind (+ DaisyUI)
+- Tailwind (+ DaisyUI & ReactIcons)
+- Zustand
 
 Running on Node 20.11.0.
