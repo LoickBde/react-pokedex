@@ -6,7 +6,7 @@ on:
 jobs:
   pr-auto-labelling:
     timeout-minutes: 10
-    runs-on: decathlon
+    runs-on: ubuntu
     if: ${{ github.actor != 'dependabot[bot]' }}
     steps:
       - name: checkout
