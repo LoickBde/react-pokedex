@@ -1,9 +1,20 @@
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { useThemeStore } from "../hooks";
 import { ThemeSwticher } from "../components/ThemeSwitcher";
+import { useQuery } from "@tanstack/react-query";
+import { pokeapi } from "../api";
 
 const App = () => {
   const theme = useThemeStore((state) => state.theme);
+
+  const { data } = useQuery({
+    queryKey: ["pokemons"],
+    queryFn: () => pokeapi.getPokemons(),
+    retry: false,
+    enabled: true,
+  });
+
+  console.log(data);
 
   return (
     <div data-theme={theme} className="w-screen h-screen">
