@@ -4,6 +4,7 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as LayoutAImport } from './routes/layoutA'
+import { Route as LayoutDImport } from './routes/_layoutD'
 import { Route as LayoutImport } from './routes/_layout'
 import { Route as LayoutBRouteImport } from './routes/layoutB/route'
 import { Route as IndexImport } from './routes/index'
@@ -12,6 +13,7 @@ import { Route as LayoutAIndexImport } from './routes/layoutA.index'
 import { Route as LayoutBIdImport } from './routes/layoutB/$id'
 import { Route as LayoutALayoutAAImport } from './routes/layoutA.layoutAA'
 import { Route as LayoutAIdImport } from './routes/layoutA.$id'
+import { Route as LayoutDLayoutDDImport } from './routes/_layoutD.layoutDD'
 import { Route as LayoutLayoutDeepImport } from './routes/_layout/_layout-deep'
 import { Route as LayoutBLayoutBBIndexImport } from './routes/layoutB/layoutBB/index'
 import { Route as LayoutLayoutDeepLayoutCImport } from './routes/_layout/_layout-deep/layoutC'
@@ -20,6 +22,11 @@ import { Route as LayoutLayoutDeepLayoutCImport } from './routes/_layout/_layout
 
 const LayoutARoute = LayoutAImport.update({
   path: '/layoutA',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LayoutDRoute = LayoutDImport.update({
+  id: '/_layoutD',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -63,6 +70,11 @@ const LayoutAIdRoute = LayoutAIdImport.update({
   getParentRoute: () => LayoutARoute,
 } as any)
 
+const LayoutDLayoutDDRoute = LayoutDLayoutDDImport.update({
+  path: '/layoutDD',
+  getParentRoute: () => LayoutDRoute,
+} as any)
+
 const LayoutLayoutDeepRoute = LayoutLayoutDeepImport.update({
   id: '/_layout-deep',
   getParentRoute: () => LayoutRoute,
@@ -94,6 +106,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutImport
       parentRoute: typeof rootRoute
     }
+    '/_layoutD': {
+      preLoaderRoute: typeof LayoutDImport
+      parentRoute: typeof rootRoute
+    }
     '/layoutA': {
       preLoaderRoute: typeof LayoutAImport
       parentRoute: typeof rootRoute
@@ -101,6 +117,10 @@ declare module '@tanstack/react-router' {
     '/_layout/_layout-deep': {
       preLoaderRoute: typeof LayoutLayoutDeepImport
       parentRoute: typeof LayoutImport
+    }
+    '/_layoutD/layoutDD': {
+      preLoaderRoute: typeof LayoutDLayoutDDImport
+      parentRoute: typeof LayoutDImport
     }
     '/layoutA/$id': {
       preLoaderRoute: typeof LayoutAIdImport
@@ -145,6 +165,7 @@ export const routeTree = rootRoute.addChildren([
   LayoutRoute.addChildren([
     LayoutLayoutDeepRoute.addChildren([LayoutLayoutDeepLayoutCRoute]),
   ]),
+  LayoutDRoute.addChildren([LayoutDLayoutDDRoute]),
   LayoutARoute.addChildren([
     LayoutAIdRoute,
     LayoutALayoutAARoute,
