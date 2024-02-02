@@ -1,0 +1,94 @@
+{
+  "labels": {
+    "chore": {
+      "name": "chore ⚙",
+      "colour": "#FBCA04",
+      "description": "Changes that affect configuration, tasks, etc"
+    },
+    "dependencies": {
+      "name": "dependencies 📦",
+      "colour": "#0052CC",
+      "description": "Changes that affect external dependencies (dependabot)"
+    },
+    "docs": {
+      "name": "docs 📚",
+      "colour": "#006B75",
+      "description": "Improvements or additions to documentation"
+    },
+    "feat": {
+      "name": "feat 🚀",
+      "colour": "#0E8A16",
+      "description": "New feature"
+    },
+    "fix": {
+      "name": "fix 🐞",
+      "colour": "#B60205",
+      "description": "Fix issue"
+    },
+    "refactor": {
+      "name": "refactor 🛠",
+      "colour": "#5319E7",
+      "description": "Code changes, sharing and other changes to improve the project"
+    }
+  },
+  "pr": {
+    "chore": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "titleMatches",
+          "pattern": "^(\\[[A-Za-z]*\\]( )*)?chore"
+        }
+      ]
+    },
+    "dependencies": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "titleMatches",
+          "pattern": "^(\\[[A-Za-z]*\\]( )*)?dependencies"
+        },
+        {
+          "type": "titleMatches",
+          "pattern": "^(\\[[A-Za-z]*\\]( )*)?chore[(]deps[)]"
+        }
+      ]
+    },
+    "docs": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "titleMatches",
+          "pattern": "^(\\[[A-Za-z]*\\]( )*)?docs"
+        }
+      ]
+    },
+    "feat": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "titleMatches",
+          "pattern": "^(\\[[A-Za-z]*\\]( )*)?feat"
+        }
+      ]
+    },
+    "fix": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "titleMatches",
+          "pattern": "^(\\[[A-Za-z]*\\]( )*)?fix"
+        }
+      ]
+    },
+    "refactor": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "titleMatches",
+          "pattern": "^(\\[[A-Za-z]*\\]( )*)?refactor"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+name: pr-auto-labelling
+on:
+  pull_request:
+    types: [opened, reopened, edited]
+
+jobs:
+  pr-auto-labelling:
+    timeout-minutes: 10
+    runs-on: decathlon
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: auto apply label according to pull request title
+        uses: IvanFon/super-labeler-action@v1
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
