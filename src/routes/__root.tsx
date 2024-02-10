@@ -14,7 +14,13 @@ const App = () => {
     enabled: true,
   });
 
-  console.log(data);
+  const pokemonsList = data && (
+    <ul>
+      {data.results.map((pokemon) => (
+        <li key={pokemon.name}>{pokemon.name}</li>
+      ))}
+    </ul>
+  );
 
   return (
     <div data-theme={theme} className="w-screen h-screen">
@@ -44,6 +50,8 @@ const App = () => {
       <button className="btn btn-primary">Button</button>
 
       <ThemeSwticher />
+
+      {pokemonsList}
 
       <Outlet />
     </div>

@@ -1,12 +1,17 @@
-import { getRequestBuilder, processCall } from "./utils";
+import { PokemonListItemType } from "../types";
+import {
+  PaginateCollectionType,
+  getRequestBuilder,
+  processCall,
+} from "./utils";
 
 const getPokemons = () => {
   const url = "https://pokeapi.co/api/v2/pokemon";
-  return processCall({
+  return processCall<PaginateCollectionType<PokemonListItemType>>({
     request: getRequestBuilder({
       url,
     }),
-  });
+  }) as Promise<PaginateCollectionType<PokemonListItemType>>;
 };
 
 export const pokeapi = {

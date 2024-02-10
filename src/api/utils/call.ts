@@ -5,11 +5,11 @@ import {
   RequestBuilderType,
 } from "./types";
 
-export const processCall = ({
+export const processCall = <T>({
   request,
-  successCallback,
-  errorCallback,
-}: ProcessCallType) => {
+  successCallback = (res) => res.data,
+  errorCallback = (e) => Promise.reject(e),
+}: ProcessCallType<T>) => {
   return axios.request(request).then(successCallback).catch(errorCallback);
 };
 
