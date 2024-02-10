@@ -1,12 +1,15 @@
-import { PokemonListItemType } from "../types";
+import { environment } from "@/environments";
+import { PokemonListItemType } from "@/types";
 import {
   PaginateCollectionType,
   getRequestBuilder,
   processCall,
 } from "./utils";
 
+const baseUrl = `${environment.pokeApiBaseUrl}${environment.pokeApiVersion}`;
+
 const getPokemons = () => {
-  const url = "https://pokeapi.co/api/v2/pokemon";
+  const url = `${baseUrl}/pokemon`;
   return processCall<PaginateCollectionType<PokemonListItemType>>({
     request: getRequestBuilder({
       url,
