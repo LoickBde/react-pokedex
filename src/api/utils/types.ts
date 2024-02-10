@@ -6,8 +6,8 @@ import {
   ResponseType,
 } from "axios";
 
-export type ProcessCallType = {
-  request: AxiosRequestConfig;
+export type ProcessCallType<T> = {
+  request: AxiosRequestConfig<T>;
   successCallback?: (resp: AxiosResponse) => unknown;
   errorCallback?: (e: AxiosError) => unknown;
 };
@@ -24,3 +24,10 @@ export type ReadRequestBuilderType = Omit<
   RequestBuilderType,
   "method" | "data"
 >;
+
+export type PaginateCollectionType<T> = {
+  results: T[];
+  count: number;
+  next?: string;
+  previous?: null;
+};
