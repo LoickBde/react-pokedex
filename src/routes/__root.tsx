@@ -1,8 +1,8 @@
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
-import { useThemeStore } from "../hooks";
-import { ThemeSwticher } from "../components/ThemeSwitcher";
+import { useThemeStore } from "@/hooks";
+import { ThemeSwticher } from "@/components/ThemeSwitcher";
 import { useQuery } from "@tanstack/react-query";
-import { pokeapi } from "../api";
+import { pokeapi } from "@/api";
 
 const App = () => {
   const theme = useThemeStore((state) => state.theme);
