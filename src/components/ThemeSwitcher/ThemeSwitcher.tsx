@@ -1,5 +1,5 @@
-import { THEMES } from "../../constants/themes";
-import { useThemeStore } from "../../hooks";
+import { THEMES } from "@/constants/themes";
+import { useThemeStore } from "@/hooks";
 import { HiMoon, HiSun } from "react-icons/hi2";
 
 export const ThemeSwticher = () => {

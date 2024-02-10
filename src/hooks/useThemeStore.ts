@@ -1,7 +1,7 @@
 import { create } from "zustand";
-import { THEMES } from "../constants/themes";
+import { THEMES } from "@/constants/themes";
 import { persist } from "zustand/middleware";
-import { LS_RP_STORE_THEME } from "../constants";
+import { LS_RP_STORE_THEME } from "@/constants";
 
 type ThemeType = (typeof THEMES)[keyof typeof THEMES];
 
