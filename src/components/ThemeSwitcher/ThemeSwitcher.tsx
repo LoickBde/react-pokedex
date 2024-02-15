@@ -13,23 +13,23 @@ export const ThemeSwticher = () => {
   };
 
   return (
-    <label className="swap swap-rotate">
+    <label className="cursor-pointer grid place-items-center">
       <input
         type="checkbox"
-        className="theme-controller"
+        className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2"
         value={theme}
         onChange={() => handleClick()}
         checked={!isLight}
       />
-      <HiMoon
-        className="swap-off fill-current w-10 h-10"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      />
       <HiSun
-        className="swap-on fill-current w-10 h-10"
+        className="col-start-1 row-start-1 stroke-base-100 fill-base-100"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
+      />
+      <HiMoon
+        className="col-start-2 row-start-1 stroke-base-100 fill-base-100"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       />
     </label>
   );
