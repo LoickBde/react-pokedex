@@ -4,7 +4,7 @@ import { ThemeSwticher } from "../ThemeSwitcher";
 export const Header = () => {
   return (
     <nav>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 drop-shadow-md">
         <div className="flex-1">
           <Link to="/" className="btn btn-ghost text-xl">
             React Pokedex
@@ -13,22 +13,13 @@ export const Header = () => {
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link to="/layoutA">Layout A</Link>
+              <a>Link 1</a>
             </li>
             <li>
-              <Link to="/layoutA/layoutAA">Layout AA</Link>
+              <a>Link 2</a>
             </li>
             <li>
-              <Link to="/layoutB">Layout B</Link>
-            </li>
-            <li>
-              <Link to="/layoutB/layoutBB">Layout BB</Link>
-            </li>
-            <li>
-              <Link to="/layoutC">Layout C</Link>
-            </li>
-            <li>
-              <a>coucou</a>
+              <a>Link 3</a>
             </li>
           </ul>
           <div className="mx-2">

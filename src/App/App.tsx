@@ -6,9 +6,12 @@ export const App = () => {
   const theme = useThemeStore((state) => state.theme);
 
   return (
-    <div data-theme={theme} className="w-screen h-screen">
+    <div
+      data-theme={theme}
+      className="h-screen w-screen relative flex flex-col overflow-hidden"
+    >
       <Header />
-      <main>
+      <main className="h-full w-full relative overflow-hidden">
         <Outlet />
       </main>
     </div>
