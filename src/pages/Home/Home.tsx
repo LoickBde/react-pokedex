@@ -1,20 +1,21 @@
-import { pokeapi } from "@/api";
 import { LoadingError } from "@/components/LoadingError";
 import { PokemonsList } from "@/components/PokemonsList";
-import { PokemonListItemType } from "@/types";
+import { queriesPokeapi } from "@/queries";
+import { PokemonDetailsType } from "@/types";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
 export const Home = () => {
-  const [selectedPokemon, setSelectedPokemon] = useState<PokemonListItemType>();
+  const [selectedPokemon, setSelectedPokemon] =
+    useState<PokemonDetailsType | null>();
   const { data, isFetching, isError } = useQuery({
     queryKey: ["pokemons"],
-    queryFn: () => pokeapi.getPokemons(),
+    queryFn: () => queriesPokeapi.getPokemonListWithInformations(),
     retry: false,
     enabled: true,
   });
 
-  const pokemons = data?.results;
+  const pokemons = data;
 
   return (
     <div className="h-full flex flex-row items-stretch">

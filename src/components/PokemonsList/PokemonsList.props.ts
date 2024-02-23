@@ -1,6 +1,6 @@
-import { PokemonListItemType, PokemonListType } from "@/types";
+import { PokemonDetailsListType, PokemonDetailsType } from "@/types";
 
 export type PokemonListProps = {
-  pokemons: PokemonListType;
-  setSelectedPokemon: (pokemon: PokemonListItemType) => void;
+  pokemons: PokemonDetailsListType;
+  setSelectedPokemon: (pokemon: PokemonDetailsType | null) => void;
 };
