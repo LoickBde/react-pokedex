@@ -3,6 +3,7 @@ import { PokemonListProps } from "./PokemonsList.props";
 export const PokemonsList = ({
   pokemons,
   setSelectedPokemon,
+  lastListItemRef,
 }: PokemonListProps) => {
   return (
     <ul className="overflow-y-auto w-1/6">
@@ -16,6 +17,7 @@ export const PokemonsList = ({
           </button>
         </li>
       ))}
+      <li ref={lastListItemRef}></li>
     </ul>
   );
 };
