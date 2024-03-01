@@ -1,5 +1,5 @@
 import { environment } from "@/environments";
-import { PokemonListItemType } from "@/types";
+import { PokemonDetailsType, PokemonNameType } from "@/types";
 import {
   PaginateCollectionType,
   getRequestBuilder,
@@ -8,15 +8,25 @@ import {
 
 const baseUrl = `${environment.pokeApiBaseUrl}${environment.pokeApiVersion}`;
 
-const getPokemons = () => {
+const getPokemonNames = () => {
   const url = `${baseUrl}/pokemon`;
-  return processCall<PaginateCollectionType<PokemonListItemType>>({
+  return processCall<PaginateCollectionType<PokemonNameType>>({
     request: getRequestBuilder({
       url,
     }),
-  }) as Promise<PaginateCollectionType<PokemonListItemType>>;
+  }) as Promise<PaginateCollectionType<PokemonNameType>>;
+};
+
+const getPokemonInformations = ({ name }: { name: string }) => {
+  const url = `${baseUrl}/pokemon/${name}`;
+  return processCall<PokemonDetailsType>({
+    request: getRequestBuilder({
+      url,
+    }),
+  }) as Promise<PokemonDetailsType>;
 };
 
 export const pokeapi = {
-  getPokemons,
+  getPokemonNames,
+  getPokemonInformations,
 };
